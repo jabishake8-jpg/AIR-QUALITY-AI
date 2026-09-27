@@ -1,10 +1,30 @@
 // js/main.js
 let currentProfile = "general";
+let map, marker;
 
 function updateDashboard(data) {
   Gauge.render(data);
   document.getElementById("risk-message").textContent = RiskEngine.evaluate(data, currentProfile);
   document.getElementById("forecast-message").textContent = Forecast.check(data);
+}
+
+function initMap() {
+  map = L.map("map").setView([22.5, 80], 5); // centered on India
+
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: "&copy; OpenStreetMap contributors",
+  }).addTo(map);
+
+  map.on("click", async (e) => {
+    const { lat, lng } = e.latlng;
+
+    if (marker) map.removeLayer(marker);
+    marker = L.marker([lat, lng]).addTo(map);
+
+    document.getElementById("gauge").textContent = "Fetching data for this location...";
+    const data = await AQIData.getCurrentByGeo(lat, lng);
+    updateDashboard(data);
+  });
 }
 
 function init() {
@@ -14,6 +34,8 @@ function init() {
   const resultsList = document.getElementById("results-list");
   const profileSelect = document.getElementById("profile-select");
   const simulateButtons = document.querySelectorAll(".simulate-btn");
+
+  initMap();
 
   profileSelect.addEventListener("change", (e) => { currentProfile = e.target.value; });
 
@@ -33,6 +55,10 @@ function init() {
       li.addEventListener("click", async () => {
         const data = await AQIData.getCurrentByStation(station.uid, station.lat, station.lon);
         updateDashboard(data);
+
+        if (marker) map.removeLayer(marker);
+        marker = L.marker([station.lat, station.lon]).addTo(map);
+        map.setView([station.lat, station.lon], 10);
       });
       resultsList.appendChild(li);
     });
@@ -45,8 +71,13 @@ function init() {
     }
     navigator.geolocation.getCurrentPosition(
       async (position) => {
-        const data = await AQIData.getCurrentByGeo(position.coords.latitude, position.coords.longitude);
+        const { latitude, longitude } = position.coords;
+        const data = await AQIData.getCurrentByGeo(latitude, longitude);
         updateDashboard(data);
+
+        if (marker) map.removeLayer(marker);
+        marker = L.marker([latitude, longitude]).addTo(map);
+        map.setView([latitude, longitude], 10);
       },
       () => alert("Location permission denied. Please use search instead.")
     );
