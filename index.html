@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Air Quality Visualizer</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 640px; margin: 40px auto; }
+    #results-list { list-style: none; padding: 0; }
+    #results-list li { padding: 8px; border: 1px solid #ccc; margin-bottom: 4px; cursor: pointer; }
+    #results-list li:hover { background: #f0f0f0; }
+    .panel { background: #f7f7f7; padding: 14px; border-radius: 8px; margin-top: 12px; }
+    .simulate-btn { margin: 4px; }
+  </style>
+</head>
+<body>
+  <h1>Air Quality Visualizer</h1>
+
+  <label>Health profile:
+    <select id="profile-select">
+      <option value="general">General</option>
+      <option value="child">Child</option>
+      <option value="elderly">Elderly</option>
+      <option value="asthma">Asthma patient</option>
+      <option value="outdoor_worker">Outdoor worker</option>
+    </select>
+  </label>
+
+  <div>
+    <input type="text" id="search-input" placeholder="Enter a place in India (e.g. Delhi)">
+    <button id="search-btn">Search</button>
+    <button id="locate-btn">📍 Use my location</button>
+  </div>
+  <ul id="results-list"></ul>
+
+  <div>
+    <strong>Demo mode:</strong>
+    <button class="simulate-btn" data-level="Good">Good</button>
+    <button class="simulate-btn" data-level="Moderate">Moderate</button>
+    <button class="simulate-btn" data-level="Unhealthy">Unhealthy</button>
+    <button class="simulate-btn" data-level="Hazardous">Hazardous</button>
+  </div>
+
+  <div id="gauge" class="panel">Pick a location or a simulate button above.</div>
+  <div class="panel"><strong>Health advisory:</strong> <span id="risk-message">—</span></div>
+  <div class="panel"><strong>Forecast:</strong> <span id="forecast-message">—</span></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/gauge.js"></script>
+  <script src="js/riskEngine.js"></script>
+  <script src="js/forecast.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
