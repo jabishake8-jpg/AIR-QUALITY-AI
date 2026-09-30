@@ -1,0 +1,87 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#162a27">
+    <title>Forecast | Air / India</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css?v=dark-atmosphere-6">
+  </head>
+  <body class="forecast-body">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="Air India overview">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span>air<span class="brand-slash">/</span>india</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span><span></span></button>
+      <nav class="primary-nav" id="primary-navigation" aria-label="Primary navigation">
+        <a href="index.html">Overview</a>
+        <a href="compare.html">Compare</a>
+        <a href="forecast.html" aria-current="page">Forecast</a>
+        <a href="planner.html">Plan activity</a>
+        <a href="health.html">Health guide</a><a href="lungs.html">Lungs 3D</a>
+        <a data-account-link href="login.html">Log in</a>
+        <button class="nav-refresh" type="button" aria-label="Refresh air-quality data" title="Refresh data now"><span aria-hidden="true">↻</span></button>
+      </nav>
+      <div class="topbar-meta"><span class="demo-indicator"><span></span> UPDATING MODEL</span><time id="clock" class="topbar-clock"></time></div>
+    </header>
+
+    <main class="page-shell subpage-shell forecast-page">
+      <section class="subpage-hero forecast-hero">
+        <div><p class="eyebrow">AIR QUALITY OUTLOOK / 02</p><h1>Plan around<br><span>the next shift.</span></h1></div>
+        <p>Follow the hourly air-quality forecast through the day. Change the city and time window to see the latest outlook.</p>
+      </section>
+
+      <section class="forecast-toolbar" aria-label="Forecast settings">
+        <label class="forecast-city-select" for="forecast-city"><span>LOCATION</span><select id="forecast-city"></select></label>
+        <div class="horizon-control" role="group" aria-label="Forecast time horizon">
+          <span>HORIZON</span>
+          <div class="horizon-tabs">
+            <button type="button" data-hours="6" aria-pressed="true">6h</button>
+            <button type="button" data-hours="12" aria-pressed="false">12h</button>
+            <button type="button" data-hours="24" aria-pressed="false">24h</button>
+          </div>
+        </div>
+        <span class="forecast-model-label"><i></i> OPEN-METEO HOURLY FORECAST</span>
+      </section>
+
+      <section class="forecast-main-chart" aria-labelledby="forecast-title">
+        <div class="forecast-chart-heading">
+          <div><p class="eyebrow">FORECAST AQI · US SCALE</p><h2 id="forecast-title">Delhi <span>through the next 6 hours</span></h2></div>
+          <div class="forecast-current"><span>CURRENT</span><strong id="forecast-current-value">--</strong><small id="forecast-current-category">--</small></div>
+        </div>
+        <div class="large-chart-wrap">
+          <div class="large-chart-axis" aria-hidden="true"><span>500</span><span>375</span><span>250</span><span>125</span><span>0</span></div>
+          <svg id="large-forecast-chart" viewBox="0 0 900 280" role="img" aria-label="Hourly air quality forecast chart">
+            <defs><linearGradient id="forecast-area-gradient" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#df864a" stop-opacity="0.28"/><stop offset="1" stop-color="#df864a" stop-opacity="0.01"/></linearGradient></defs>
+            <path class="large-chart-grid" d="M0 18H900M0 73H900M0 128H900M0 184H900M0 240H900" />
+            <path id="large-chart-area" class="large-chart-area" d="" />
+            <path id="large-chart-line" class="large-chart-line" d="" />
+            <g id="large-chart-points"></g>
+          </svg>
+          <div class="large-chart-axis-labels" id="large-chart-labels"></div>
+        </div>
+        <div class="forecast-summaries">
+          <div><span>EXPECTED HIGH</span><strong id="forecast-high">--</strong><small id="forecast-high-time">--</small></div>
+          <div><span>CLEANEST WINDOW</span><strong id="forecast-low">--</strong><small id="forecast-low-time">--</small></div>
+          <div><span>OVERALL DIRECTION</span><strong id="forecast-direction">--</strong><small id="forecast-delta">--</small></div>
+        </div>
+      </section>
+
+      <section class="forecast-guidance-band">
+        <div class="forecast-guidance-mark" aria-hidden="true">↗</div>
+        <div><p class="eyebrow">WHAT THE FORECAST SUGGESTS</p><p id="forecast-guidance">Choose a city to view the hourly trend.</p></div>
+        <a class="text-link" href="health.html">View health guidance <span aria-hidden="true">↗</span></a>
+      </section>
+      <footer class="page-footer"><span><strong>Air / India</strong> · Air quality monitor</span><span data-data-status>Loading CAMS model estimates via Open-Meteo</span></footer>
+    </main>
+    <script src="js/site.js?v=cursor-1"></script>
+    <script src="shared/air-guidance.cjs"></script>
+    <script src="js/air-data.js?v=live-data-6"></script>
+    <script src="js/auth.js?v=accounts-3"></script>
+    <script src="js/forecast.js?v=live-data-3"></script>
+  </body>
+</html>

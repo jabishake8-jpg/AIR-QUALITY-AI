@@ -1,0 +1,62 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#162a27">
+    <meta name="description" content="Manage your Air / India profile, city, and email preferences.">
+    <title>Account | Air / India</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css?v=dark-atmosphere-6">
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="Air India overview">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span>air<span class="brand-slash">/</span>india</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span><span></span></button>
+      <nav class="primary-nav" id="primary-navigation" aria-label="Primary navigation">
+        <a href="index.html">Overview</a>
+        <a href="compare.html">Compare</a>
+        <a href="forecast.html">Forecast</a>
+        <a href="planner.html">Plan activity</a>
+        <a href="health.html">Health guide</a><a href="lungs.html">Lungs 3D</a>
+        <a data-account-link href="login.html">Log in</a>
+      </nav>
+    </header>
+    <main class="page-shell subpage-shell auth-page">
+      <section class="subpage-hero">
+        <div><p class="eyebrow">YOUR AIR / INDIA ACCOUNT</p><h1>Keep your settings <span>close.</span></h1></div>
+        <p>Choose the city and guidance profile used throughout your dashboard.</p>
+      </section>
+      <section id="account-signed-out" class="auth-layout" hidden>
+        <div class="auth-heading"><p class="eyebrow">ACCOUNT ACCESS</p><h2>Log in to continue</h2></div>
+        <p class="auth-help">Account preferences and email settings are available after you log in.</p>
+        <a class="auth-submit auth-link-button" href="login.html">Log in</a>
+      </section>
+      <section id="account-content" class="account-layout" hidden aria-labelledby="account-heading">
+        <div class="auth-heading"><p class="eyebrow">ACCOUNT SETTINGS</p><h2 id="account-heading">Your account</h2></div>
+        <div class="account-identity"><span>Email address</span><strong id="account-email"></strong><small>Email status: <span id="account-verification"></span></small></div>
+        <div class="account-preferences">
+          <label class="auth-field" for="account-profile"><span>Health profile</span><select id="account-profile"></select></label>
+          <label class="auth-field" for="account-city"><span>City</span><select id="account-city"></select></label>
+          <label class="auth-consent account-subscription"><input id="account-subscribed" type="checkbox"><span>Send me daily air-quality email updates</span></label>
+        </div>
+        <p class="auth-help">“Child” changes the guidance shown for this account only. No child's personal details are stored.</p>
+        <p id="account-status" class="auth-message" role="status" aria-live="polite"></p>
+        <div class="account-actions">
+          <button id="logout-button" class="quiet-btn" type="button">Log out</button>
+          <button id="delete-account-button" class="danger-button" type="button">Delete account</button>
+        </div>
+        <p class="auth-privacy">Air-quality guidance is general information, not medical advice. You can unsubscribe from email updates here at any time.</p>
+      </section>
+      <footer class="page-footer"><span><strong>Air / India</strong> · Air quality monitor</span><span>Manage your data and email preferences here.</span></footer>
+    </main>
+    <script src="js/site.js?v=cursor-1"></script>
+    <script src="shared/air-guidance.cjs"></script>
+    <script src="js/auth.js?v=accounts-3"></script>
+  </body>
+</html>

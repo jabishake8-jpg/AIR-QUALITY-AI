@@ -1,0 +1,96 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#162a27">
+    <title>Compare cities | Air / India</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css?v=dark-atmosphere-6">
+  </head>
+  <body class="compare-body">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="Air India overview">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span>air<span class="brand-slash">/</span>india</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span><span></span></button>
+      <nav class="primary-nav" id="primary-navigation" aria-label="Primary navigation">
+        <a href="index.html">Overview</a>
+        <a href="compare.html" aria-current="page">Compare</a>
+        <a href="forecast.html">Forecast</a>
+        <a href="planner.html">Plan activity</a>
+        <a href="health.html">Health guide</a><a href="lungs.html">Lungs 3D</a>
+        <a data-account-link href="login.html">Log in</a>
+        <button class="nav-refresh" type="button" aria-label="Refresh air-quality data" title="Refresh data now"><span aria-hidden="true">↻</span></button>
+      </nav>
+      <div class="topbar-meta"><span class="demo-indicator"><span></span> UPDATING MODEL</span><time id="clock" class="topbar-clock"></time></div>
+    </header>
+
+    <main class="page-shell subpage-shell">
+      <section class="subpage-hero">
+        <div><p class="eyebrow">CITY INTELLIGENCE / 01</p><h1>Two cities.<br><span>One clearer choice.</span></h1></div>
+        <p>Compare pollution levels and the conditions around them. See where the air is cleaner before you make a plan.</p>
+      </section>
+
+      <section class="compare-controls" aria-label="Choose cities to compare">
+        <label class="compare-select compare-select-a"><span>CITY A</span><select id="city-a"></select></label>
+        <button id="swap-cities" class="swap-button" type="button" aria-label="Swap cities" title="Swap cities">⇄</button>
+        <label class="compare-select compare-select-b"><span>CITY B</span><select id="city-b"></select></label>
+        <span class="compare-context">INDIA · US AQI SCALE</span>
+      </section>
+
+      <section class="comparison-stage" aria-labelledby="comparison-heading">
+        <div class="comparison-stage-heading">
+          <div><p class="eyebrow">THE BIG PICTURE</p><h2 id="comparison-heading">Where do they sit?</h2></div>
+          <span class="comparison-readout" id="comparison-readout" aria-live="polite"></span>
+        </div>
+        <div class="aqi-spectrum" aria-hidden="true">
+          <span class="spectrum-band band-good"></span><span class="spectrum-band band-moderate"></span>
+          <span class="spectrum-band band-sensitive"></span><span class="spectrum-band band-unhealthy"></span>
+          <span class="spectrum-band band-very"></span><span class="spectrum-band band-hazard"></span>
+          <span id="marker-a" class="spectrum-marker marker-a"><i></i></span>
+          <span id="marker-b" class="spectrum-marker marker-b"><i></i></span>
+        </div>
+        <div class="spectrum-ticks" aria-hidden="true"><span>0</span><span>50</span><span>100</span><span>150</span><span>200</span><span>300</span><span>500</span></div>
+        <div class="spectrum-cities">
+          <div><span class="city-key key-a"></span><span id="label-a">Delhi</span><strong id="value-a">--</strong><small id="category-a">--</small></div>
+          <div><span class="city-key key-b"></span><span id="label-b">Bengaluru</span><strong id="value-b">--</strong><small id="category-b">--</small></div>
+        </div>
+      </section>
+
+      <section class="compare-data" aria-labelledby="compare-data-heading">
+        <div class="section-heading insight-heading">
+          <div><p class="eyebrow">CITY SNAPSHOT</p><h2 id="compare-data-heading">More than the headline</h2></div>
+          <span class="updated-at">CAMS MODEL · OPEN-METEO</span>
+        </div>
+        <div class="comparison-table-wrap">
+          <table class="comparison-table">
+            <thead><tr><th scope="col">MEASURE</th><th id="table-city-a" scope="col">Delhi</th><th id="table-city-b" scope="col">Bengaluru</th><th scope="col">DIFFERENCE</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Air quality index</th><td id="a-aqi">--</td><td id="b-aqi">--</td><td id="delta-aqi" class="table-delta">--</td></tr>
+              <tr><th scope="row">PM2.5 (µg/m³)</th><td id="a-pm">--</td><td id="b-pm">--</td><td id="delta-pm" class="table-delta">--</td></tr>
+              <tr><th scope="row">Temperature</th><td id="a-temp">--</td><td id="b-temp">--</td><td id="delta-temp" class="table-delta">--</td></tr>
+              <tr><th scope="row">Relative humidity</th><td id="a-humidity">--</td><td id="b-humidity">--</td><td id="delta-humidity" class="table-delta">--</td></tr>
+              <tr><th scope="row">Wind speed</th><td id="a-wind">--</td><td id="b-wind">--</td><td id="delta-wind" class="table-delta">--</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p id="comparison-note" class="comparison-note"></p>
+      </section>
+
+      <section class="next-step-band">
+        <div><p class="eyebrow">TAKE THE NEXT STEP</p><h2>Know when the air may shift.</h2></div>
+        <a class="text-link" href="forecast.html">Open the forecast <span aria-hidden="true">↗</span></a>
+      </section>
+      <footer class="page-footer"><span><strong>Air / India</strong> · Air quality monitor</span><span data-data-status>Loading CAMS model estimates via Open-Meteo</span></footer>
+    </main>
+   <script src="js/site.js?v=cursor-1"></script> 
+    <script src="shared/air-guidance.cjs"></script>
+    <script src="js/air-data.js?v=live-data-6"></script>
+    <script src="js/auth.js?v=accounts-3"></script>
+    <script src="js/compare.js?v=live-data-3"></script>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#162a27">
+    <meta name="description" content="Create an Air / India account for personalized air-quality guidance and optional email updates.">
+    <title>Create account | Air / India</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css?v=dark-atmosphere-6">
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="Air India overview">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span>air<span class="brand-slash">/</span>india</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span><span></span></button>
+      <nav class="primary-nav" id="primary-navigation" aria-label="Primary navigation">
+        <a href="index.html">Overview</a>
+        <a href="compare.html">Compare</a>
+        <a href="forecast.html">Forecast</a>
+        <a href="planner.html">Plan activity</a>
+        <a href="health.html">Health guide</a><a href="lungs.html">Lungs 3D</a>
+        <a data-account-link href="login.html">Log in</a>
+      </nav>
+    </header>
+    <main class="page-shell subpage-shell auth-page">
+      <section class="subpage-hero">
+        <div><p class="eyebrow">YOUR AIR / INDIA ACCOUNT</p><h1>Make guidance <span>personal.</span></h1></div>
+        <p>Create an account to keep your city and health profile in sync and receive optional air-quality email updates.</p>
+      </section>
+      <section class="auth-layout" aria-labelledby="register-heading">
+        <div class="auth-heading"><p class="eyebrow">NEW ACCOUNT</p><h2 id="register-heading">Create account</h2></div>
+        <form id="register-form" class="auth-form">
+          <label class="auth-field" for="register-email"><span>Email address</span><input id="register-email" name="email" type="email" autocomplete="email" maxlength="254" required></label>
+          <div class="auth-field-grid">
+            <label class="auth-field" for="register-password"><span>Password</span><input id="register-password" name="password" type="password" autocomplete="new-password" minlength="8" maxlength="128" required><small>At least 8 characters</small></label>
+            <label class="auth-field" for="register-confirm-password"><span>Confirm password</span><input id="register-confirm-password" name="confirm-password" type="password" autocomplete="new-password" minlength="8" maxlength="128" required></label>
+          </div>
+          <div class="auth-field-grid">
+            <label class="auth-field" for="register-profile"><span>Health profile</span><select id="register-profile" name="profile" required></select></label>
+            <label class="auth-field" for="register-city"><span>City</span><select id="register-city" name="city" required></select></label>
+          </div>
+          <p class="auth-help">Choosing “Child” only changes the guidance shown for this account. We do not ask for a child’s name or date of birth.</p>
+          <label class="auth-consent"><input name="consent" type="checkbox" required><span>I agree to receive air-quality email updates. I can unsubscribe at any time.</span></label>
+          <p class="auth-privacy">We use your email, selected city, and guidance profile to run this account and send the updates you requested. We do not collect information about a child. We handle personal data in line with the Digital Personal Data Protection Act, 2023; see the <a href="README.md">privacy and data note</a>.</p>
+          <p id="register-status" class="auth-message" role="status" aria-live="polite"></p>
+          <button class="auth-submit" type="submit">Create account</button>
+        </form>
+        <p class="auth-switch">Already registered? <a href="login.html">Log in</a></p>
+      </section>
+      <footer class="page-footer"><span><strong>Air / India</strong> · Air quality monitor</span><span>Guidance is general information, not medical advice.</span></footer>
+    </main>
+    <script src="js/site.js?v=cursor-1"></script>
+    <script src="shared/air-guidance.cjs"></script>
+    <script src="js/auth.js?v=accounts-3"></script>
+  </body>
+</html>

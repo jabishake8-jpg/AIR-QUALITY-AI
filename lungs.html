@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#162a27">
+    <title>3D lungs | Air / India</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css?v=cursor-1">
+    <link rel="stylesheet" href="css/lungs.css?v=1">
+  </head>
+  <body class="lungs-body">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="Air India overview">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span>air<span class="brand-slash">/</span>india</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span><span></span></button>
+      <nav class="primary-nav" id="primary-navigation" aria-label="Primary navigation">
+        <a href="index.html">Overview</a>
+        <a href="compare.html">Compare</a>
+        <a href="forecast.html">Forecast</a>
+        <a href="planner.html">Plan activity</a>
+        <a href="health.html">Health guide</a>
+        <a href="lungs.html" aria-current="page">Lungs 3D</a>
+        <a data-account-link href="login.html">Log in</a>
+        <button class="nav-refresh" type="button" aria-label="Refresh air-quality data" title="Refresh data now"><span aria-hidden="true">↻</span></button>
+      </nav>
+      <div class="topbar-meta"><span class="demo-indicator"><span></span> UPDATING MODEL</span><time id="clock" class="topbar-clock"></time></div>
+    </header>
+
+    <main class="page-shell subpage-shell lungs-page">
+      <section class="subpage-hero">
+        <div><p class="eyebrow">INSIDE YOUR LUNGS</p><h1>See what the air<br><span>does to you.</span></h1></div>
+        <p>Drag to turn the lungs, click a part to learn about it, and move the AQI slider to see how polluted air changes every breath.</p>
+      </section>
+
+      <section class="lungs-layout">
+        <div class="lungs-stage" id="lungs-stage">
+          <canvas id="lungs-canvas" aria-label="Interactive 3D model of human lungs" role="img"></canvas>
+          <p class="lungs-hint">Drag to rotate · Click a part</p>
+        </div>
+
+        <aside class="lungs-panel">
+          <label class="lungs-control" for="lungs-city"><span>CITY</span><select id="lungs-city"></select></label>
+          <label class="lungs-control" for="lungs-aqi"><span>AQI LEVEL</span><input id="lungs-aqi" type="range" min="0" max="400" value="90"></label>
+          <div class="lungs-reading">
+            <strong id="lungs-aqi-value">90</strong>
+            <span id="lungs-category" class="risk-badge">Moderate</span>
+          </div>
+          <p id="lungs-effect" aria-live="polite"></p>
+          <div class="lungs-part">
+            <p class="eyebrow" id="lungs-part-label">SELECTED PART</p>
+            <h2 id="lungs-part-title">Lungs</h2>
+            <p id="lungs-part-text"></p>
+          </div>
+          <p class="lungs-note">General information only, not medical advice. The model is simplified.</p>
+        </aside>
+      </section>
+
+      <footer class="page-footer"><span><strong>Air / India</strong> · Air quality monitor</span><span data-data-status>Loading model estimates via Open-Meteo</span></footer>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="js/site.js?v=cursor-1"></script>
+    <script src="shared/air-guidance.cjs"></script>
+    <script src="js/air-data.js?v=live-data-6"></script>
+    <script src="js/auth.js?v=accounts-3"></script>
+    <script src="js/lungs.js?v=1"></script>
+  </body>
+</html>
