@@ -1,0 +1,51 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#162a27">
+    <meta name="description" content="Log in to your Air / India account.">
+    <title>Log in | Air / India</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css?v=dark-atmosphere-6">
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="Air India overview">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span>air<span class="brand-slash">/</span>india</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span><span></span></button>
+      <nav class="primary-nav" id="primary-navigation" aria-label="Primary navigation">
+        <a href="index.html">Overview</a>
+        <a href="compare.html">Compare</a>
+        <a href="forecast.html">Forecast</a>
+        <a href="planner.html">Plan activity</a>
+        <a href="health.html">Health guide</a><a href="lungs.html">Lungs 3D</a>
+        <a data-account-link href="login.html">Log in</a>
+      </nav>
+    </header>
+    <main class="page-shell subpage-shell auth-page">
+      <section class="subpage-hero">
+        <div><p class="eyebrow">YOUR AIR / INDIA ACCOUNT</p><h1>Welcome <span>back.</span></h1></div>
+        <p>Log in to manage your saved city, guidance profile, and email updates.</p>
+      </section>
+      <section class="auth-layout auth-layout-compact" aria-labelledby="login-heading">
+        <div class="auth-heading"><p class="eyebrow">ACCOUNT ACCESS</p><h2 id="login-heading">Log in</h2></div>
+        <form id="login-form" class="auth-form">
+          <label class="auth-field" for="login-email"><span>Email address</span><input id="login-email" name="email" type="email" autocomplete="email" maxlength="254" required></label>
+          <label class="auth-field" for="login-password"><span>Password</span><input id="login-password" name="password" type="password" autocomplete="current-password" minlength="8" maxlength="128" required></label>
+          <p id="login-status" class="auth-message" role="status" aria-live="polite"></p>
+          <button class="auth-submit" type="submit">Log in</button>
+        </form>
+        <p class="auth-switch">New to Air / India? <a href="register.html">Create an account</a></p>
+      </section>
+      <footer class="page-footer"><span><strong>Air / India</strong> · Air quality monitor</span><span>Guidance is general information, not medical advice.</span></footer>
+    </main>
+   <script src="js/site.js?v=cursor-1"></script>
+    <script src="shared/air-guidance.cjs"></script>
+    <script src="js/auth.js?v=accounts-3"></script>
+  </body>
+</html>

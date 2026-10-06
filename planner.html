@@ -1,0 +1,90 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#162a27">
+    <title>Plan outdoor time | Air / India</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css?v=dark-atmosphere-6">
+  </head>
+  <body class="planner-body">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="Air India overview">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span>air<span class="brand-slash">/</span>india</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span><span></span></button>
+      <nav class="primary-nav" id="primary-navigation" aria-label="Primary navigation">
+        <a href="index.html">Overview</a>
+        <a href="compare.html">Compare</a>
+        <a href="forecast.html">Forecast</a>
+        <a href="planner.html" aria-current="page">Plan activity</a>
+        <a href="health.html">Health guide</a><a href="lungs.html">Lungs 3D</a>
+        <a data-account-link href="login.html">Log in</a>
+        <button class="nav-refresh" type="button" aria-label="Refresh air-quality data" title="Refresh data now"><span aria-hidden="true">↻</span></button>
+      </nav>
+      <div class="topbar-meta"><span class="demo-indicator"><span></span> UPDATING MODEL</span><time id="clock" class="topbar-clock"></time></div>
+    </header>
+
+    <main class="page-shell subpage-shell planner-page">
+      <section class="subpage-hero planner-hero">
+        <div><p class="eyebrow">OUTDOOR ACTIVITY PLANNER / 04</p><h1>Pick your moment.<br><span>Not just your route.</span></h1></div>
+        <p>Find a lower-pollution window for the things you want to do outside. Read the next 24 hours around your city, activity, and health profile.</p>
+      </section>
+
+      <section class="planner-controls" aria-label="Activity plan settings">
+        <label class="planner-city-select" for="planner-city"><span>LOCATION</span><select id="planner-city"></select></label>
+        <label class="planner-profile-select" for="planner-profile"><span>HEALTH PROFILE</span><select id="planner-profile"></select></label>
+        <div class="duration-control">
+          <label for="activity-duration"><span>TIME OUTSIDE</span><strong><output id="duration-output" for="activity-duration">30</output> min</strong></label>
+          <input id="activity-duration" type="range" min="15" max="120" step="15" value="30">
+        </div>
+      </section>
+
+      <section class="activity-picker" aria-labelledby="activity-heading">
+        <div class="activity-picker-heading"><div><p class="eyebrow">WHAT ARE YOU PLANNING?</p><h2 id="activity-heading">Choose an activity</h2></div><span id="activity-effort-label" class="effort-label">MODERATE EFFORT</span></div>
+        <div class="activity-options" role="group" aria-label="Choose an outdoor activity">
+          <button class="activity-option" type="button" data-activity="walk" aria-pressed="true"><span class="activity-symbol" aria-hidden="true">↗</span><span><strong>Walk</strong><small>Easy effort</small></span><i class="activity-check" aria-hidden="true">✓</i></button>
+          <button class="activity-option" type="button" data-activity="run" aria-pressed="false"><span class="activity-symbol" aria-hidden="true">⌁</span><span><strong>Run</strong><small>High effort</small></span><i class="activity-check" aria-hidden="true">✓</i></button>
+          <button class="activity-option" type="button" data-activity="cycle" aria-pressed="false"><span class="activity-symbol" aria-hidden="true">⟳</span><span><strong>Cycle</strong><small>Moderate effort</small></span><i class="activity-check" aria-hidden="true">✓</i></button>
+          <button class="activity-option" type="button" data-activity="play" aria-pressed="false"><span class="activity-symbol" aria-hidden="true">✳</span><span><strong>Outdoor play</strong><small>Children</small></span><i class="activity-check" aria-hidden="true">✓</i></button>
+        </div>
+      </section>
+
+      <section class="plan-result" aria-labelledby="plan-result-heading">
+        <div class="plan-result-topline"><span>YOUR CLEANER WINDOW</span><span id="plan-city-label">DELHI · NEXT 24H</span></div>
+        <div class="plan-result-main">
+          <div class="plan-window"><strong id="best-window">--</strong><span id="best-window-detail">Finding a lower AQI window</span></div>
+          <div class="plan-aqi"><span>FORECAST AQI</span><strong id="best-window-aqi">--</strong><small id="best-window-category">--</small></div>
+          <div class="plan-difference"><span>VS. RIGHT NOW</span><strong id="plan-improvement">--</strong><small id="plan-status">Illustrative only</small></div>
+        </div>
+        <p id="plan-guidance" class="plan-guidance" aria-live="polite"></p>
+      </section>
+
+      <section class="hourly-planner" aria-labelledby="hourly-heading">
+        <div class="section-heading insight-heading">
+          <div><p class="eyebrow">24-HOUR AIR RHYTHM</p><h2 id="hourly-heading">Choose a start time</h2></div>
+          <div class="planner-legend"><span><i></i> Lower AQI</span><span><i></i> Higher AQI</span></div>
+        </div>
+        <p class="hourly-hint">Select an hour to preview its category and your profile-specific guidance.</p>
+        <div id="hourly-slots" class="hourly-slots" role="group" aria-label="Select a start hour"></div>
+        <div class="planner-scale"><span>Cleaner air</span><span>Increasing AQI</span><span>More polluted</span></div>
+      </section>
+
+      <section class="activity-note-band">
+        <span class="activity-note-icon" aria-hidden="true">i</span>
+        <p>Timing suggestions use forecast AQI and activity intensity, not a measured inhaled dose. This is not medical advice.</p>
+        <a class="text-link" href="forecast.html">View forecast details <span aria-hidden="true">↗</span></a>
+      </section>
+      <footer class="page-footer"><span><strong>Air / India</strong> · Air quality monitor</span><span data-data-status>Loading CAMS model estimates via Open-Meteo</span></footer>
+    </main>
+    <script src="js/site.js?v=cursor-1"></script>
+    <script src="shared/air-guidance.cjs"></script>
+    <script src="js/air-data.js?v=live-data-6"></script>
+    <script src="js/auth.js?v=accounts-3"></script>
+    <script src="js/planner.js?v=live-data-3"></script>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#162a27">
+    <title>Health guide | Air / India</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css?v=dark-atmosphere-6">
+  </head>
+  <body class="health-body">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="Air India overview">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span>air<span class="brand-slash">/</span>india</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span><span></span></button>
+      <nav class="primary-nav" id="primary-navigation" aria-label="Primary navigation">
+        <a href="index.html">Overview</a>
+        <a href="compare.html">Compare</a>
+        <a href="forecast.html">Forecast</a>
+        <a href="planner.html">Plan activity</a>
+        <a href="health.html" aria-current="page">Health guide</a><a href="lungs.html">Lungs 3D</a>
+        <a data-account-link href="login.html">Log in</a>
+        <button class="nav-refresh" type="button" aria-label="Refresh air-quality data" title="Refresh data now"><span aria-hidden="true">↻</span></button>
+      </nav>
+      <div class="topbar-meta"><span class="demo-indicator"><span></span> UPDATING MODEL</span><time id="clock" class="topbar-clock"></time></div>
+    </header>
+
+    <main class="page-shell subpage-shell health-page">
+      <section class="subpage-hero health-hero">
+        <div><p class="eyebrow">PERSONAL EXPOSURE / 03</p><h1>Make the air<br><span>make sense for you.</span></h1></div>
+        <p>AQI is one number, but people respond differently. Explore the range with guidance shaped around your profile.</p>
+      </section>
+
+      <section class="health-context-bar" aria-label="Current location and profile">
+        <div class="health-place"><span class="place-crosshair" aria-hidden="true">◎</span><div><span>SELECTED LOCATION</span><strong id="health-city">Delhi</strong></div></div>
+        <div class="health-current-reading"><span>CURRENT AQI</span><strong id="health-current-aqi">178</strong><small id="health-current-category">Unhealthy</small></div>
+        <label class="health-profile-select" for="health-profile"><span>YOUR PROFILE</span><select id="health-profile"></select></label>
+        <p id="health-account-status" class="visually-hidden" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="health-explorer" aria-labelledby="health-explorer-title">
+        <div class="section-heading insight-heading">
+          <div><p class="eyebrow">EXPLORE A CATEGORY</p><h2 id="health-explorer-title">What does this level mean?</h2></div>
+          <span id="profile-label" class="risk-badge">GENERAL</span>
+        </div>
+        <div class="health-band-selector" id="health-band-selector" role="group" aria-label="Select an AQI category"></div>
+        <div class="health-explanation">
+          <div class="health-explanation-index"><span>EXAMPLE AQI</span><strong id="example-aqi">--</strong><span id="example-range">--</span></div>
+          <div class="health-explanation-copy">
+            <p class="eyebrow">PERSONAL GUIDANCE</p>
+            <h3 id="health-category-title">--</h3>
+            <p id="health-advice" aria-live="polite"></p>
+            <p id="health-sensitivity" class="sensitivity-note"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="aqi-reference" aria-labelledby="aqi-reference-title">
+        <div class="section-heading insight-heading">
+          <div><p class="eyebrow">THE SCALE</p><h2 id="aqi-reference-title">Six bands. Different precautions.</h2></div>
+          <span class="updated-at">US EPA AQI</span>
+        </div>
+        <div class="aqi-reference-list" id="aqi-reference-list"></div>
+      </section>
+
+      <section class="health-disclaimer-band">
+        <span class="disclaimer-symbol" aria-hidden="true">i</span>
+        <p>This guide offers general information, not a diagnosis or a replacement for medical advice. Follow your clinician’s care plan and local public-health instructions.</p>
+        <a class="text-link" href="index.html">Back to overview <span aria-hidden="true">↗</span></a>
+      </section>
+      <footer class="page-footer"><span><strong>Air / India</strong> · Air quality monitor</span><span data-data-status>Loading CAMS model estimates via Open-Meteo</span></footer>
+    </main>
+    <script src="js/site.js?v=cursor-1"></script>
+    <script src="shared/air-guidance.cjs"></script>
+    <script src="js/air-data.js?v=live-data-6"></script>
+    <script src="js/auth.js?v=accounts-3"></script>
+    <script src="js/health.js?v=live-data-6"></script>
+  </body>
+</html>
